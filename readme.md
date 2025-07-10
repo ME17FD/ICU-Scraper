@@ -75,10 +75,10 @@ Specialized scraper for Avito.ma, Morocco's leading classified ads platform.
 | `price` | Item price | "850,000 DH" |
 | `location` | Geographic location | "Casablanca" |
 | `details` | Additional item details | "3 chambres, 2 salles de bain" |
-| `link` | Direct link to listing | "https://www.avito.ma/..." |
+| `link` | Direct link to listing | "https://..." |
 | `seller` | Seller information | "Agence X" |
 | `date` | Posting date | "Il y a 2 jours" |
-| `image` | Main image URL | "https://img.avito.ma/..." |
+| `image` | Main image URL | "https://..." |
 
 #### Usage Examples
 
@@ -87,7 +87,7 @@ from scrapers.avito_scraper import scrape_avito
 from utils.export import export_data
 
 # Basic usage - scrape apartments in Casablanca
-url = "https://www.avito.ma/fr/maroc/appartement_casablanca"
+url = "https://example.com/category/apartments"
 results, fields = scrape_avito(url, pages=3)
 
 # Export to Excel (default)
@@ -106,7 +106,7 @@ export_data(results, list(fields), url, 2, "csv", site_name="avito_ma")
 ```python
 # Full configuration example
 results, fields = scrape_avito(
-    url="https://www.avito.ma/fr/maroc/voiture",
+    url="https://example.com/category/cars",
     pages=5,                    # Number of pages to scrape
     delay=2,                    # Delay between requests (seconds)
     fields={"title", "price", "location", "link"}  # Custom fields
@@ -266,7 +266,7 @@ from scrapers.avito_scraper import scrape_avito
 from utils.export import export_data
 
 # Scrape apartments
-url = "https://www.avito.ma/fr/maroc/appartement_casablanca"
+url = "https://example.com/category/apartments"
 results, fields = scrape_avito(url, pages=2)
 
 # Export results
@@ -305,8 +305,8 @@ scraper.export_data(results)
 | Villa 4 pièces | 1,200,000 DH | Rabat | 4 chambres, jardin | https://... | Particulier | Il y a 1 jour | https://... |
 
 ### Metadata Sheet
-- **Site**: avito_ma
-- **URL**: https://www.avito.ma/fr/maroc/appartement_casablanca
+- **Site**: example_site
+- **URL**: https://example.com/category/apartments
 - **Pages Scraped**: 3
 - **Fields**: title, price, location, details, link, seller, date, image
 - **Total Items**: 74
